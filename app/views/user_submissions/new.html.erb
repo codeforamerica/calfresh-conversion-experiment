@@ -1,0 +1,9 @@
+<%= form_for @user_submission, url: "/apply", method: "post" do |submission| %>
+  <%= submission.label :county %>
+  <%= submission.select :county, options_for_select(@counties) %>
+  <%= submission.label :email_address %>
+  <%= submission.text_field :email_address %>
+  <%= submission.label :phone_number %>
+  <%= submission.text_field :phone_number %>
+  <%= submission.submit "Start application" %>
+<% end %>

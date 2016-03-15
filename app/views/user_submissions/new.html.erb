@@ -7,3 +7,14 @@
   <%= submission.text_field :phone_number %>
   <%= submission.submit "Start application" %>
 <% end %>
+
+<% if @user_submission.errors.any? %>
+  <div id="error_explanation">
+    <h2>Oops!</h2>
+    <ul>
+    <% @user_submission.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

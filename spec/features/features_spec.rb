@@ -8,4 +8,9 @@ RSpec.describe "the splash web form", type: :feature, js: true do
     fill_in 'Phone number', with: '111-222-3333'
     click_button 'Start application'
   end
+
+  it "contains 58 counties" do
+    visit '/apply'
+    expect(page).to have_selector('option', count: 58)
+  end
 end

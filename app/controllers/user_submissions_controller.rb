@@ -1,7 +1,7 @@
 class UserSubmissionsController < ApplicationController
   def new
     @user_submission ||= UserSubmission.new
-    @counties = ["Yolo"]
+    @counties = County.names.sort
   end
 
   def create

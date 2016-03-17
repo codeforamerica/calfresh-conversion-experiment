@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+.navbar-brand {
+	color: #E4E6E5;
+}

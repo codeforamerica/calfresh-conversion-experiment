@@ -1,37 +1,52 @@
-<div class="container">
-  <div class="row ">
-    <% if @user_submission.errors.any? %>
-      <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <div class="alert alert-danger" role="alert">
-          <div id="error_explanation">
-           <b>Oops!</b>
-            <ul>
-            <% @user_submission.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<nav class="navbar navbar-default" style="margin-bottom:0; background-color:#233445; color: white;">
+  <div class="container-fluid">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <h2>Get Extra Money for Groceries Every Month</h2>
+        <p>Take the first step. Apply for CalFresh today.</p>
+        <br>
     </div>
+  </div>
+</nav>
+<div class="container-fluid">
     <%= form_for @user_submission, url: "/apply", method: "post" do |submission| %>
-      <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-        <div class="form-group">
-          <%= submission.label :county %>
-          <%= submission.select :county, options_for_select(@counties), {prompt: 'What county do you live in?' },  {required: 'true', autofocus: 'true', class: 'form-control'} %>
-        </div>
-        <div class="form-group">
-          <%= submission.label :email_address %>
-          <%= submission.text_field :email_address, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= submission.label :phone_number %>
-          <%= submission.text_field :phone_number, class: "form-control" %>
-        </div>
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+      <% if @user_submission.errors.any? %>
+          <div class="alert alert-danger" role="alert" style="margin-top: 1em;">
+            <div id="error_explanation">
+             <b>Oops!</b>
+              <ul>
+              <% @user_submission.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+      <% end %>
+      <h3>Get Started</h3>
+      <p>To begin, enter your contact information. We’ll only use this to follow up with you and see if you had any problems applying.</p>
+      <div class="form-group">
+        <%= submission.label :county %>
+        <%= submission.select :county, options_for_select(@counties), {prompt: 'What county do you live in?' },  {required: 'true', autofocus: 'true', class: 'form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= submission.label :phone_number %>
+        <small style="display:block;">We will text message you during the application process.</small>
+        <%= submission.text_field :phone_number, class: "form-control", style: "margin-top: 5px;" %>
+      </div>
+      <div class="form-group">
+        <%= submission.label :email_address, "Email Address (if you prefer)" %>
+        <small style="display:block;">If you prefer emails about the application process instead of text messages, provide your address here.</small>
+        <%= submission.text_field :email_address, class: "form-control", style: "margin-top: 5px;" %>
+      </div>
+      <div class="form-group">
         <%= submission.submit "Start application", class: "btn btn-primary" %>
       </div>
+      <div class="form-group">
+        <p style="font-size: 80%; font-style: italic;">A free, non-profit service for California residents.</p>
+      </div>
+    </div>
     <% end %>
   </div>
+  <br>
 </div>
 

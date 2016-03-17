@@ -22,4 +22,8 @@ class ExternalSitesController < ApplicationController
     @link_url = "https://www.getcalfresh.org/"
     render :shell_for_outbound_linking
   end
+
+  def cfa
+    redirect_to 'https://www.codeforamerica.org'
+  end
 end

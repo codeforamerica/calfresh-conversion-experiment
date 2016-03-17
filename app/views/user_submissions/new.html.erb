@@ -1,5 +1,20 @@
 <div class="container">
-  <div class="row "> 
+  <div class="row ">
+    <% if @user_submission.errors.any? %>
+      <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="alert alert-danger" role="alert">
+          <div id="error_explanation">
+           <b>Oops!</b>
+            <ul>
+            <% @user_submission.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
     <%= form_for @user_submission, url: "/apply", method: "post" do |submission| %>
       <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <div class="form-group">
@@ -15,18 +30,6 @@
           <%= submission.text_field :phone_number, class: "form-control" %>
         </div>
         <%= submission.submit "Start application", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="row">
-    <% if @user_submission.errors.any? %>
-      <div id="error_explanation">
-        <h2>Oops!</h2>
-        <ul>
-        <% @user_submission.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
       </div>
     <% end %>
   </div>

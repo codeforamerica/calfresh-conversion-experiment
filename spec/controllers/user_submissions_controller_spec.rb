@@ -17,8 +17,16 @@ describe UserSubmissionsController do
     end
 
     context "given valid submission data" do
+      let(:time_now) { Time.zone.now }
+
       before do
+        Timecop.freeze(time_now)
+
         post :create, { user_submission: { phone_number: "111-222-3333", email_address: "", county: "San Bernardino" } }
+      end
+
+      after do
+        Timecop.return
       end
 
       it "adds a destination to the user submission" do
@@ -32,6 +40,7 @@ describe UserSubmissionsController do
           with(
             "http://example.com/webhook/fakekey/",
             body: {
+              timestamp: time_now,
               county: "San Bernardino",
               destination: "c4",
               phonenumber: "111-222-3333",

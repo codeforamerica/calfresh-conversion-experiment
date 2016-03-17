@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'pry'
   gem 'webmock'
+  gem 'timecop'
 end
 
 group :development do

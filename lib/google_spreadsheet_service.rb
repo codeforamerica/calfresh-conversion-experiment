@@ -3,6 +3,7 @@ class GoogleSpreadsheetService
     HTTParty.post(
       zapier_webhook_url,
       body: {
+        timestamp: Time.zone.now,
         county: user_submission.county,
         destination: user_submission.destination,
         phonenumber: user_submission.phone_number,

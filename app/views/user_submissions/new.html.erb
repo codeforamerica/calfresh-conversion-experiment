@@ -1,20 +1,25 @@
-<%= form_for @user_submission, url: "/apply", method: "post" do |submission| %>
-  <%= submission.label :county %>
-  <%= submission.select :county, options_for_select(@counties) %>
-  <%= submission.label :email_address %>
-  <%= submission.text_field :email_address %>
-  <%= submission.label :phone_number %>
-  <%= submission.text_field :phone_number %>
-  <%= submission.submit "Start application" %>
-<% end %>
-
-<% if @user_submission.errors.any? %>
-  <div id="error_explanation">
-    <h2>Oops!</h2>
-    <ul>
-    <% @user_submission.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class="container">
+  <div class="row">
+    <%= form_for @user_submission, url: "/apply", method: "post" do |submission| %>
+      <%= submission.label :county %>
+      <%= submission.select :county, options_for_select(@counties) %>
+      <%= submission.label :email_address %>
+      <%= submission.text_field :email_address %>
+      <%= submission.label :phone_number %>
+      <%= submission.text_field :phone_number %>
+      <%= submission.submit "Start application" %>
     <% end %>
-    </ul>
+
+    <% if @user_submission.errors.any? %>
+      <div id="error_explanation">
+        <h2>Oops!</h2>
+        <ul>
+        <% @user_submission.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+

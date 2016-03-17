@@ -37,7 +37,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-     stub_request(:post, "http://example.com/webhook/fakekey/").
+     stub_request(:post, "http://localhost:3000/webhook/fakekey/").
          to_return(:status => 200, :body => "", :headers => {})
   end
 

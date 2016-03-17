@@ -12,6 +12,8 @@ Work in progress
 - Start your local Postgres instance and set env vars to acccess it: `POSTGRES_USERNAME` and `POSTGRES_PASSWORD`
 - Create database and migrate: `bin/rake db:create` then `bin/rake db:migrate`
 
+If you want to test with the actual Zapier endpoint, set `ZAPIER_WEBHOOK_URL`
+
 ## License
 
 MIT

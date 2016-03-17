@@ -1,6 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "the splash web form", type: :feature, js: true do
+describe "the splash web form", type: :feature, js: true do
+  before(:each) do
+    # Mock external requests
+    allow(HTTParty).to receive(:post)
+  end
+
   it "has all the elements" do
     visit '/apply'
     select 'Yolo', from: 'County'

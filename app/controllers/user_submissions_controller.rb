@@ -9,8 +9,8 @@ class UserSubmissionsController < ApplicationController
 
     if @user_submission.valid?
       @user_submission.destination = Destination.for_county(@user_submission.county)
-      # TODO — stub below, change
       GoogleSpreadsheetService.save_user_submission(@user_submission)
+      # TODO — stub below, change
       redirect_to '/apply'
     else
       @counties = County.names.sort

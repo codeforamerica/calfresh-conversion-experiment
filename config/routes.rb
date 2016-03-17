@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get '/apply' => 'user_submissions#new'
   post '/apply' => 'user_submissions#create'
 
+  get '/continue/mbcw' => 'external_sites#mbcw'
+  get '/continue/c4' => 'external_sites#c4'
+  get '/continue/leader' => 'external_sites#leader'
+  get '/continue/getcalfresh' => 'external_sites#getcalfresh'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

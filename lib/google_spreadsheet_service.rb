@@ -9,7 +9,7 @@ class GoogleSpreadsheetService
         phonenumber: user_submission.phone_number,
         email: user_submission.email_address
       }
-    )
+    ) if zapier_webhook_url
   end
 
   private

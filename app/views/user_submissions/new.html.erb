@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
         <h2>Get Extra Money for Groceries Every Month</h2>
-        <p>Take the first step. Apply for CalFresh today.</p>
+        <p>Apply for CalFresh<br>(California's food stamp program)</p>
         <br>
     </div>
   </div>
@@ -22,8 +22,10 @@
             </div>
           </div>
       <% end %>
-      <h3>Get Started</h3>
-      <p>To begin, enter your contact information. We’ll only use this to follow up with you and see if you had any problems applying.</p>
+      <br>
+      <p>We’re a non-profit working to improve the online application for CalFresh.</p>
+      <p>To start applying, fill out the info below.</p>
+      <p>We will <b>only</b> use this to follow up with you and see if you had any problems.</p>
       <div class="form-group">
         <%= submission.label :county %>
         <%= submission.select :county, options_for_select(@counties), {prompt: 'What county do you live in?' },  {required: 'true', autofocus: 'true', class: 'form-control'} %>
@@ -40,7 +42,7 @@
         <%= submission.submit "Start application", class: "btn btn-primary" %>
       </div>
       <div class="form-group">
-        <p style="font-size: 80%; font-style: italic;">A free, non-profit service for California residents.</p>
+        <p style="font-size: 80%; font-style: italic;">A free, non-profit service for California residents by <a href="https://www.codeforamerica.org">Code for America</a>.</p>
       </div>
     </div>
     <% end %>

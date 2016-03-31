@@ -29,7 +29,6 @@
         <%= submission.select :county, options_for_select(@counties), {prompt: 'What county do you live in?' },  {required: 'true', autofocus: 'true', class: 'form-control'} %>
       </div>
       <h3>Contact information</h3>
-      <p>We will <b>only</b> use this to ask you if you had any problems applying.</p>
       <div class="form-group" id="radio-buttons-form-group">
         <%= radio_button_tag(:contact_preference, "Email") %>
         <%= label_tag(:contact_preference_email, "Email", { id: "email-label" }) %>
@@ -44,6 +43,7 @@
         <%= submission.label :email_address, "Email Address" %>
         <%= submission.text_field :email_address, class: "form-control"%>
       </div>
+      <p>We will <b>only</b> use this to ask you if you had any problems applying.</p>
       <div class="form-group">
         <%= submission.submit "Start application", class: "btn btn-primary" %>
       </div>

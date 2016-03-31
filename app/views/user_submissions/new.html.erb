@@ -23,21 +23,27 @@
           </div>
       <% end %>
       <br>
-      <p>We’re a non-profit working to improve the online application for CalFresh.</p>
-      <p>To start applying, fill out the info below.</p>
-      <p>We will <b>only</b> use this to follow up with you and see if you had any problems.</p>
+      <p>We’re a non-profit working to make it easier to apply for CalFresh online. To start applying, fill out the info below.</p>
+      <h3>County</h3>
       <div class="form-group">
-        <%= submission.label :county %>
         <%= submission.select :county, options_for_select(@counties), {prompt: 'What county do you live in?' },  {required: 'true', autofocus: 'true', class: 'form-control'} %>
       </div>
-      <div class="form-group">
-        <%= submission.label :phone_number, "Phone number (we will text you)" %>
+      <h3>Contact information</h3>
+      <div class="form-group" id="radio-buttons-form-group">
+        <%= radio_button_tag(:contact_preference, "Email") %>
+        <%= label_tag(:contact_preference_email, "Email", { id: "email-label" }) %>
+        <%= radio_button_tag(:contact_preference, "Text Message") %>
+        <%= label_tag(:contact_preference_text_message, "Text Message", { id: "text-message-label" }) %>
+      </div>
+      <div class="form-group" id="phone-number-form-group" style="display: none;">
+        <%= submission.label :phone_number, "Phone number" %>
         <%= submission.text_field :phone_number, class: "form-control" %>
       </div>
-      <div class="form-group">
-        <%= submission.label :email_address, "Email Address (or email you, if you prefer)" %>
+      <div class="form-group" id="email-form-group" style="display: none;">
+        <%= submission.label :email_address, "Email Address" %>
         <%= submission.text_field :email_address, class: "form-control"%>
       </div>
+      <p>We will <b>only</b> use this to ask you if you had any problems applying.</p>
       <div class="form-group">
         <%= submission.submit "Start application", class: "btn btn-primary" %>
       </div>
@@ -50,3 +56,32 @@
   <br>
 </div>
 
+<script>
+  function showEmailField() {
+    $("#email-form-group").show();
+    $("#phone-number-form-group").hide();
+  };
+
+  function showTextField() {
+    $("#phone-number-form-group").show();
+    $("#email-form-group").hide();
+  }
+
+  $("#contact_preference_Email").change(function(e) {
+    showEmailField();
+  });
+
+  $("#contact_preference_Text_Message").change(function(e) {
+    showTextField();
+  });
+
+  $("#email-label").click(function(e) {
+    $("#contact_preference_Email")[0].checked = true;
+    showEmailField();
+  });
+
+  $("#text-message-label").click(function(e) {
+    $("#contact_preference_Text_Message")[0].checked = true;
+    showTextField();
+  });
+</script>

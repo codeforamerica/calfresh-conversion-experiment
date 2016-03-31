@@ -21,3 +21,14 @@
 .navbar-brand {
 	color: #E4E6E5;
 }
+
+
+#radio-buttons-form-group {
+  margin-bottom: 5px;
+}
+
+#radio-buttons-form-group label {
+  font-size: 110%;
+  font-weight: 600;
+  margin-right: 9px;
+}

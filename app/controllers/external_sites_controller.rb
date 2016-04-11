@@ -19,7 +19,7 @@ class ExternalSitesController < ApplicationController
 
   def getcalfresh
     @link_text = "www.getcalfresh.org"
-    @link_url = "https://www.getcalfresh.org/"
+    @link_url = "https://www.getcalfresh.org/?source=study"
     render :shell_for_outbound_linking
   end
 
